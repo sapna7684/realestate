@@ -2,8 +2,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Router from 'next/router'
 import Head from 'next/head'
 import nProgress from "nprogress";
-import "../styles/globals.css";
-import "../styles/nprogress.css";
 import { Layout } from '../components/Layout'
 
 Router.events.on("routeChangeStart", nProgress.start);
