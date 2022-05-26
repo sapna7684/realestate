@@ -3,14 +3,18 @@ import Router from 'next/router'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import { Layout } from '../components/Layout'
+
+NProgress.configure({showSpinner: false})
+Router.events.on('routeChangeStart', () => {
+  NProgress.start();
+});
+Router.events.on('routerChangeError', () => {
+  NProgress.done();
+})
+Router.events.on('routerChangeComplete', () => {
+  NProgress.done();
+})
 function MyApp({ Component, pageProps }) {
-  NProgress.configure({showSpinner: false})
-  Router.events.on('routeChangeStart', () => {
-    NProgress.start();
-  });
-  Router.events.on('routerChangeComplete', () => {
-    NProgress.done();
-  })
   return (
     <>
       <Head>
